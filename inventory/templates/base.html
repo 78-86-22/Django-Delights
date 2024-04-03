@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Django Delights App</title>
+</head>
+<body>
+    <header>
+        <div class="app">
+            <h1>Django Delights Tracking App</h1>            
+            <a href="#logout"><button>LOGOUT</button></a>
+        </div>
+
+        <div>
+            <nav class="navbar">             
+                <a href="{% url 'home' %}"><button>HOME</button></a>
+                <a href="{% url 'menu' %}"><button>MENU</button></a>
+                <a href="{% url 'recipes' %}"><button>RECIPES / Requirements</button></a>
+                <a href="{% url 'ingredients' %}"><button>INGREDIENTS / Stock</button></a> 
+            </nav>
+        </div>      
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>
+

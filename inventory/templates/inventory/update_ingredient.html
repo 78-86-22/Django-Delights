@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div>
+        <h2>Update Ingredients in Django Delights Stock</h2>
+    </div>
+
+    <hr/>
+
+    <div>
+        <form method="post" class="flex-form">
+        <div>
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="Update Ingredient"/>
+        </div>    
+        </form>
+    </div>
+    
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div>
+        <h2>Add a new dish to Django Delights Menu</h2>
+    </div>
+
+    <hr/>
+
+    <div>
+        <form method="post">
+        <div>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Add New Dish"/>
+        </div>    
+        </form>
+    </div>
+    
+{% endblock %}

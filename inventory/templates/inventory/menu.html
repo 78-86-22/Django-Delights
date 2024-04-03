@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div>
+        <h2>Menu</h2>
+        <a href="{% url 'add_dish' %}"><button>ADD DISH TO MENU</button></a>
+    </div>
+
+    <hr/>
+
+    <div>
+        <table>
+            <tr>
+                <th>Django Delights Amazing Dishes</th>
+                <th>Price</th>
+            </tr>
+            <tr>
+            {% for item in menu %}
+            </tr>
+            <tr>
+                <td>{{ item.title }}</td>
+                <td>${{ item.price }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+{% endblock %}
+
