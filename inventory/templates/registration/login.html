@@ -2,7 +2,7 @@
 
 {% block content %}
     <div>
-        <h2>Update Ingredients in Django Delights Stock</h2>
+        <h2>Login to Django Delights amazing app</h2>
     </div>
 
     <hr/>
@@ -11,8 +11,8 @@
         <form method="post">
         <div>
         {% csrf_token %}
-        {{ form }}
-        <input type="submit" value="Update Ingredient"/>
+        {{ form.as_p }}
+        <input type="submit" value="Login"/>
         </div>    
         </form>
     </div>

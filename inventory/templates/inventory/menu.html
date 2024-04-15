@@ -4,6 +4,8 @@
     <div>
         <h2>Menu</h2>
         <a href="{% url 'add_dish' %}"><button>ADD DISH TO MENU</button></a>
+        <a href="{% url 'add_purchase' %}"><button>NEW PURCHASE</button></a>
+        <a href="{% url 'purchases' %}"><button>PURCHASE REPORT</button></a>
     </div>
 
     <hr/>
@@ -15,7 +17,7 @@
                 <th>Price</th>
             </tr>
             <tr>
-            {% for item in menu %}
+            {% for item in object_list %}
             </tr>
             <tr>
                 <td>{{ item.title }}</td>

@@ -8,7 +8,7 @@
     <header>
         <div class="app">
             <h1>Django Delights Tracking App</h1>            
-            <a href="#logout"><button>LOGOUT</button></a>
+            <a href="{% url 'logout' %}"><button>LOG OUT</button></a>
         </div>
 
         <div>
@@ -16,7 +16,9 @@
                 <a href="{% url 'home' %}"><button>HOME</button></a>
                 <a href="{% url 'menu' %}"><button>MENU</button></a>
                 <a href="{% url 'recipes' %}"><button>RECIPES / Requirements</button></a>
-                <a href="{% url 'ingredients' %}"><button>INGREDIENTS / Stock</button></a> 
+                <a href="{% url 'ingredients' %}"><button>INGREDIENTS / Stock</button></a>
+                <a href="{% url 'reports' %}"><button>REPORTS</button></a>
+
             </nav>
         </div>      
     </header>
