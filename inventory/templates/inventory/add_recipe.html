@@ -1,20 +1,17 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
     <div>
         <h2>Add Recipe Requirements to Django Delights Menu Items</h2>
     </div>
-
-    <hr/>
 
     <div>
         <form method="post">
         <div>
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Add Recipe Requirement"/>
+        <button input type="submit">ADD RECIPE REQUIREMENT</button>
         </div>    
         </form>
-    </div>
-    
+    </div>    
 {% endblock %}

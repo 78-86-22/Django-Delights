@@ -1,0 +1,73 @@
+body {
+    font-family: Verdana, sans-serif;    
+    background-image: url("/static/inventory/assets/pizza_background.jpg");
+    background-size: cover;
+    color: white;
+    margin-left: 2%;
+}
+
+button {
+    background: none;
+    border: 2px solid white;
+    color: white;
+}
+
+button:hover {
+    background: white;
+    color: black;
+}
+
+img {
+    width: 425px;
+    height: 285px;
+    border-radius: 5px;
+    margin-left: 2%;
+}
+
+ul li {
+    font-size: 1.2em;
+    font-weight: bold;
+    text-decoration: underline;    
+}
+
+table {
+    width: 35%;
+}
+
+th {
+    text-align: left;
+}
+
+.hello {
+    display: inline-block;
+}
+
+.but_logout {
+    display: inline-block;
+}
+.navbar {
+    margin-top: 2%;
+}
+
+.time {
+    margin-left: 2%;
+}
+
+a.ing_links:link {
+    color: white;
+    text-decoration: none;   
+}
+
+a.ing_links:visited {
+    color: white;
+    text-decoration: none;    
+}
+
+a.ing_links:link:hover {
+    text-decoration: underline;    
+}
+
+.data {
+    font-size: 1.2em;
+    font-weight: bold;
+}

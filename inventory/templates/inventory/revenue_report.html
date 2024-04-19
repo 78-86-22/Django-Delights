@@ -1,25 +1,25 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
     <div>
         <h2>Revenue</h2>
     </div>
 
-    <hr/>
-
     <div>
         <table>
-            <tr>
-                <th>Revenue</th>
-                <th>Costs</th>
-                <th>Profit</th>
-            </tr>
-            
-            <tr>
-                <td>{{ revenue|stringformat:".2f" }}</td>
-                <td>{{ cost|stringformat:".2f" }}</td>
-                <td>{{ profit|stringformat:".2f" }}</td>
-            </tr>
-         
+            <thead>
+                <tr>
+                    <th>Revenue</th>
+                    <th>Costs</th>
+                    <th>Profit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="data">
+                    <td>${{ revenue|stringformat:".2f" }}</td>
+                    <td>${{ cost|stringformat:".2f" }}</td>
+                    <td>${{ profit|stringformat:".2f" }}</td>
+                </tr>
+            </tbody>         
         </table>
 {% endblock %}

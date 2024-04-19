@@ -1,20 +1,17 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
     <div>
-        <h2>Login to Django Delights amazing app</h2>
+        <h2>Hello!... Please Login</h2>
     </div>
-
-    <hr/>
 
     <div>
         <form method="post">
         <div>
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Login"/>
+        <button input type="submit">LOG IN</button>
         </div>    
         </form>
-    </div>
-    
+    </div>    
 {% endblock %}

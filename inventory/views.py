@@ -5,14 +5,18 @@ from django.views.generic.edit import CreateView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import logout
 
-from .forms import IngredientForm, MenuForm, RecipeForm, PurchaseForm
+from .forms import IngredientForm, MenuForm, RecipeForm
 from .models import Ingredient, MenuItem, RecipeRequirement, Purchase
 
 class HomeView(LoginRequiredMixin, TemplateView):
     template_name = "inventory/home.html"
 
+
+# below: views that let the user see current inventory, 
+# add new ingredients and update stock
+
 class IngredientView(LoginRequiredMixin, ListView):
-    model = Ingredient
+    model = Ingredient 
     template_name = "inventory/ingredients.html"
     
 class AddIngredientView(LoginRequiredMixin, CreateView):
@@ -24,7 +28,11 @@ class UpdateIngredientView(LoginRequiredMixin, UpdateView):
     model = Ingredient
     template_name = "inventory/update_ingredient.html"
     form_class = IngredientForm
-    
+
+
+ #  below: views for the user to see the menu, add new dishes, 
+ #  add their recipes and see the recipes of all menu items
+   
 class MenuListView(LoginRequiredMixin, ListView):
     model = MenuItem
     template_name = "inventory/menu.html"
@@ -34,6 +42,11 @@ class AddMenu_itemView(LoginRequiredMixin, CreateView):
     template_name = "inventory/add_dish.html"
     form_class = MenuForm
 
+class AddRecipeView(LoginRequiredMixin, CreateView):
+    model = RecipeRequirement
+    template_name = "inventory/add_recipe.html"
+    form_class = RecipeForm
+
 class RecipesListView(LoginRequiredMixin, TemplateView):
     template_name = "inventory/recipes.html"
 
@@ -41,15 +54,10 @@ class RecipesListView(LoginRequiredMixin, TemplateView):
         context = super().get_context_data(**kwargs)
         context["menu"] = MenuItem.objects.all()
         return context
+
+
+# view that decreases ingredient quantities in stock and registers purchases made
     
-class AddRecipeView(LoginRequiredMixin, CreateView):
-    model = RecipeRequirement
-    template_name = "inventory/add_recipe.html"
-    form_class = RecipeForm
-
-class ReportsView(LoginRequiredMixin, TemplateView):
-    template_name = "inventory/reports.html"
-
 class NewPurchaseView(LoginRequiredMixin, TemplateView):
     template_name = "inventory/add_purchase.html"
 
@@ -71,6 +79,12 @@ class NewPurchaseView(LoginRequiredMixin, TemplateView):
         
         purchase.save()
         return redirect("/Menu")
+    
+    
+# below: views for user to see reports of purchases made and revenue
+   
+class ReportsView(LoginRequiredMixin, TemplateView):
+    template_name = "inventory/reports.html"
 
 class PuchasesReportView(LoginRequiredMixin, ListView):
     model = Purchase

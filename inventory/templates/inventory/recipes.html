@@ -1,39 +1,34 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content%}
-
     <div>
         <h2>Recipes and Requirements</h2>
         <a href="{% url 'requirements' %}"><button>ADD RECIPE REQUIREMENT</button></a>
     </div>
-
-    <hr/>
 
     <div>
         <ul>
             {% for menu_item in menu %}
                 <li>{{ menu_item.title }} Recipe:</li>
                 <table>
-                    <tr>
-                        <th>Ingredient</th>
-                        <th>Quantity</th>
-                        <th>Unit</th>
-                                                   
-                    </tr>           
+                    <thead>
+                        <tr>
+                            <th>Ingredient</th>
+                            <th>Quantity</th>
+                            <th>Unit</th>
+                        </tr>                
+                    </thead>
+                    <tbody>           
                     {% for requirement in menu_item.reciperequirement_set.all %}
-                    <tr>                       
-                        <td>{{ requirement.ingredient.name }}</td>
-                        <td>{{ requirement.quantity }}</td>
-                        <td>{{ requirement.ingredient.unit }}</td>
-                                                      
-                    </tr>
+                        <tr>                       
+                            <td>{{ requirement.ingredient.name }}</td>
+                            <td>{{ requirement.quantity }}</td>
+                            <td>{{ requirement.ingredient.unit }}</td>
+                        </tr>
                     {% endfor %}
-
-                </table>    
-
-            {% endfor %}    
-            
+                    </tbody>
+                </table>
+           {% endfor %}    
         </ul>
     </div>
-
 {% endblock %}

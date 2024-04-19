@@ -1,26 +1,20 @@
 {% extends 'base.html' %}
- 
+{% load static %} 
 {% block content %}
     <div>
         <h2>New Purchase</h2>
     </div>
 
-    <hr/>
-    
-    <form method="post">
-    
+    <form method="post">    
         {% csrf_token %}
         {{ form.as_p }}
-        <p>
-            <label for="menu_item">Menu Item</label>
-            <select name="menu_item" id="menu_item" required>
-                <option value selected>-----</option>
-                {% for menu_item in menu %}
+        <label for="menu_item">Which one?</label>
+        <select name="menu_item" id="menu_item" required>
+            <option value selected>-----</option>
+            {% for menu_item in menu %}
                 <option value={{ menu_item.id }}>{{ menu_item.title }}</option>
-                {% endfor %}
-            </select>
-        </p>
-        <input type="submit" value="Confirm"/>
-    
+            {% endfor %}
+        </select>
+        <button input type="submit">CONFIRM</button>    
     </form>
 {% endblock %}

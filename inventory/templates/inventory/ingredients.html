@@ -1,33 +1,31 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
     <div>
         <h2>Ingredients / Stock</h2>
         <a href="{% url 'add_ingredient' %}"><button>ADD INGREDIENT</button></a>           
     </div>
 
-    <hr/>
-
     <div>
         <table>
-            <tr>
-                <th>Ingredients</th>
-                <th>Quantity</th>
-                <th>Unit</th>
-                <th>Price/unit</th>                           
-            </tr>
-            <tr>
+            <thead>
+                <tr>
+                    <th>Ingredients</th>
+                    <th>Quantity</th>
+                    <th>Unit</th>
+                    <th>Price/unit</th>                           
+                </tr>
+            </thead>
+            <tbody>
             {% for item in object_list %}
-            </tr>
-            <tr>
-                <td><a href="{% url "update_ingredient" item.id %}">{{ item.name }}</a></td>
-                <td>{{ item.quantity }}</td>
-                <td>{{ item.unit }}</td>
-                <td>${{ item.unit_price }}</td>
-                
-            </tr>
+                <tr>
+                    <td><a class="ing_links" href="{% url "update_ingredient" item.id %}">{{ item.name }}</a></td>
+                    <td>{{ item.quantity }}</td>
+                    <td>{{ item.unit }}</td>
+                    <td>${{ item.unit_price }}</td>                
+                </tr>
             {% endfor %}
+            </tbody>
         </table>
-    </div>
-    
+    </div>    
 {% endblock %}

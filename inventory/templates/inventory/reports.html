@@ -1,16 +1,12 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
     <div>
         <h2>Django Delights Reports</h2>
-    <div>
-    
-        <hr/>
-        
+    </div>
 
-        <div>              
-            <a href="{% url 'purchases' %}"><button>PURCHASE REPORT</button></a>
-            <a href="{% url 'revenue' %}"><button>REVENUE</button></a>
-        </div>
+    <div>
+        <a href="{% url 'purchases' %}"><button>PURCHASE REPORT</button></a>
+        <a href="{% url 'revenue' %}"><button>REVENUE REPORT</button></a>        
     </div>
 {% endblock %}

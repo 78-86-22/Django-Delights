@@ -1,29 +1,28 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
     <div>
         <h2>Menu</h2>
-        <a href="{% url 'add_dish' %}"><button>ADD DISH TO MENU</button></a>
+        <a href="{% url 'add_dish' %}"><button>ADD DISH</button></a>
         <a href="{% url 'add_purchase' %}"><button>NEW PURCHASE</button></a>
         <a href="{% url 'purchases' %}"><button>PURCHASE REPORT</button></a>
     </div>
 
-    <hr/>
-
     <div>
         <table>
-            <tr>
-                <th>Django Delights Amazing Dishes</th>
-                <th>Price</th>
-            </tr>
-            <tr>
-            {% for item in object_list %}
-            </tr>
-            <tr>
-                <td>{{ item.title }}</td>
-                <td>${{ item.price }}</td>
-            </tr>
+            <thead>
+                <tr>
+                    <th>Django Delights Amazing Dishes</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>    
+            {% for item in object_list %}               
+                <tr>
+                    <td>{{ item.title }}</td>
+                    <td>${{ item.price }}</td>
+                </tr>
             {% endfor %}
+            </tbody>
         </table>
 {% endblock %}
-

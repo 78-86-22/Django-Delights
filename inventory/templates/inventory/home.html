@@ -1,17 +1,13 @@
 {% extends "base.html" %}
+{% load static %}
+{% block content %}    
+    <div>
+        <h2>Home</h2>
+    <div>        
 
-{% block content %}
-    <div class="home">
-        <div>
-            <h2>HOME</h2>
-        <div>
-    
-        <hr/>
-        
-
-        <div>              
-            <a href=""><button>Content</button></a>
-            <a href=""><button>Content</button></a>
-        </div>
+    <div>
+        <h3 class="time">{% now "l, F j, Y g:i A" %}</h3>
+        <h2>Floorplan for the night:<h2>
+        <img src="/static/inventory/assets/tables.jpg"/>
     </div>
 {% endblock %}
