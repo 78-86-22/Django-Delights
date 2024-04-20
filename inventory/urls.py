@@ -19,4 +19,6 @@ urlpatterns = [
     path("Revenue", views.RevenueReportView.as_view(), name="revenue"),
     path("logout/", views.user_logout, name="logout"),
     path('accounts/login/', auth_views.LoginView.as_view(), name="login"),
+    path("Menu/<slug:pk>/delete_dish", views.DeleteMenu_itemView.as_view(), name="delete_dish"),
+    path("ingredients/<slug:pk>/delete_ingredient", views.DeleteIngredientView.as_view(), name="delete_ingredient"),
     ]

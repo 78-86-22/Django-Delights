@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <div>
+        <h2>Delete ingredient from Inventory</h2>
+    </div>
+
+    <div>
+        <form method="post">
+        <div>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <h3>Are you sure??</h3>
+        <h2>{{ object.name }}<h2>
+        <h3>Will be removed from inventory</h3>
+        <button input type="submit">DELETE INGREDIENT</button>
+        </div>    
+        </form>
+        <a href="{% url 'ingredients' %}"><button>CANCEL</button></a>
+    </div>    
+{% endblock %}

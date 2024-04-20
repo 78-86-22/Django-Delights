@@ -3,7 +3,7 @@
 {% block content %}
     <div>
         <h2>Menu</h2>
-        <a href="{% url 'add_dish' %}"><button>ADD DISH</button></a>
+        <a href="{% url 'add_dish' %}"><button>ADD NEW DISH</button></a>
         <a href="{% url 'add_purchase' %}"><button>NEW PURCHASE</button></a>
         <a href="{% url 'purchases' %}"><button>PURCHASE REPORT</button></a>
     </div>
@@ -14,6 +14,7 @@
                 <tr>
                     <th>Django Delights Amazing Dishes</th>
                     <th>Price</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>    
@@ -21,6 +22,7 @@
                 <tr>
                     <td>{{ item.title }}</td>
                     <td>${{ item.price }}</td>
+                    <td class="del_btn"><a href="{% url 'delete_dish' item.id %}"><button>X</button></a>
                 </tr>
             {% endfor %}
             </tbody>

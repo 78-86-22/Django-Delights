@@ -1,7 +1,8 @@
 from typing import Any
 from django.shortcuts import redirect
+from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import logout
 
@@ -13,7 +14,7 @@ class HomeView(LoginRequiredMixin, TemplateView):
 
 
 # below: views that let the user see current inventory, 
-# add new ingredients and update stock
+# add new ingredients, update stock and delete ingredients
 
 class IngredientView(LoginRequiredMixin, ListView):
     model = Ingredient 
@@ -29,9 +30,14 @@ class UpdateIngredientView(LoginRequiredMixin, UpdateView):
     template_name = "inventory/update_ingredient.html"
     form_class = IngredientForm
 
+class DeleteIngredientView(LoginRequiredMixin, DeleteView):
+    model = Ingredient
+    template_name = "inventory/delete_ingredient.html"
+    success_url = reverse_lazy("ingredients")
+
 
  #  below: views for the user to see the menu, add new dishes, 
- #  add their recipes and see the recipes of all menu items
+ #  add their recipes, see all the recipes and delete dishes from menu
    
 class MenuListView(LoginRequiredMixin, ListView):
     model = MenuItem
@@ -54,6 +60,11 @@ class RecipesListView(LoginRequiredMixin, TemplateView):
         context = super().get_context_data(**kwargs)
         context["menu"] = MenuItem.objects.all()
         return context
+    
+class DeleteMenu_itemView(LoginRequiredMixin, DeleteView):
+    model = MenuItem
+    template_name = "inventory/delete_dish.html"
+    success_url = reverse_lazy("menu")
 
 
 # view that decreases ingredient quantities in stock and registers purchases made

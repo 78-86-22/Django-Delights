@@ -13,7 +13,8 @@
                     <th>Ingredients</th>
                     <th>Quantity</th>
                     <th>Unit</th>
-                    <th>Price/unit</th>                           
+                    <th>Price/unit</th>
+                    <th>Delete</th>                           
                 </tr>
             </thead>
             <tbody>
@@ -22,7 +23,8 @@
                     <td><a class="ing_links" href="{% url "update_ingredient" item.id %}">{{ item.name }}</a></td>
                     <td>{{ item.quantity }}</td>
                     <td>{{ item.unit }}</td>
-                    <td>${{ item.unit_price }}</td>                
+                    <td>${{ item.unit_price }}</td>
+                    <td class="del_btn"><a href="{% url 'delete_ingredient' item.id %}"><button>X</button></a>              
                 </tr>
             {% endfor %}
             </tbody>

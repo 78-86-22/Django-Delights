@@ -31,7 +31,7 @@ ul li {
 }
 
 table {
-    width: 35%;
+    width: 40%;
 }
 
 th {
@@ -70,4 +70,8 @@ a.ing_links:link:hover {
 .data {
     font-size: 1.2em;
     font-weight: bold;
+}
+
+.del_btn {
+    text-align: center;
 }

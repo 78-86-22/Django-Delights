@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <div>
+        <h2>Delete dish from Django Delights Menu</h2>
+    </div>
+
+    <div>
+        <form method="post">
+        <div>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <h3>Are you sure??</h3>
+        <h2>{{ object.title }}<h2>
+        <h3>Will be removed from menu</h3>
+        <button input type="submit">DELETE DISH</button>
+        </div>    
+        </form>
+        <a href="{% url 'menu' %}"><button>CANCEL</button></a>
+    </div>    
+{% endblock %}
